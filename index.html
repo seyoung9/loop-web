@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>LOOP — 소년의 외침은 파도로 번져</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0a0a0a;--surface:#111;--border:rgba(255,255,255,0.08);
+  --accent:#8B1A1A;--accent-bright:#C41E1E;
+  --tp:#F0EDE8;--ts:rgba(240,237,232,0.55);--td:rgba(240,237,232,0.32);
+  --fb:'Pretendard',sans-serif;--fd:'Cormorant Garamond',serif;
+  --hh:68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tp);font-family:var(--fb);-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hh);
+  display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;
+  border-bottom:1px solid var(--border);
+  background:rgba(10,10,10,0.9);backdrop-filter:blur(16px);
+}
+.logo-wrap{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.logo-wrap img{width:100%;height:100%;object-fit:cover;}
+nav{display:flex;gap:2.2rem;}
+nav a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ts);transition:color .25s;}
+nav a:hover{color:var(--tp);}
+
+/* ── HERO ── */
+#hero{
+  position:relative;
+  min-height:100svh;
+  padding-top:var(--hh);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-left:2.5rem;
+  padding-right:2.5rem;
+  padding-bottom:6rem;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 65% 40%,rgba(139,26,26,0.22) 0%,transparent 70%),
+    repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.02) 79px,rgba(255,255,255,0.02) 80px);
+}
+.hero-vignette{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.2) 60%,transparent 100%);
+}
+.hero-content{position:relative;z-index:2;max-width:760px;}
+
+.hero-grant{
+  display:block;
+  font-size:0.68rem;font-weight:400;letter-spacing:0.14em;
+  color:rgba(240,237,232,0.65);
+  margin-bottom:1.6rem;
+}
+.hero-title{
+  font-family:var(--fd);
+  font-size:clamp(2.8rem,7vw,6.5rem);
+  font-weight:300;letter-spacing:-0.02em;line-height:1.25;
+  color:var(--tp);margin-bottom:2rem;
+  opacity:0;animation:up .8s .1s ease forwards;
+}
+.hero-title em{font-style:italic;color:var(--ts);}
+.hero-tagline{
+  font-size:0.9rem;font-weight:300;letter-spacing:0.04em;
+  color:var(--ts);line-height:1.7;margin-bottom:3rem;
+  opacity:0;animation:up .8s .25s ease forwards;
+}
+.hero-info{
+  display:flex;flex-direction:column;gap:0.45rem;
+  opacity:0;animation:up .8s .4s ease forwards;
+}
+.hero-info-row{display:flex;gap:1rem;align-items:flex-start;font-size:0.82rem;}
+.info-label{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--td);width:4.5rem;flex-shrink:0;font-weight:400;padding-top:0.18rem;}
+.info-value{color:var(--ts);font-weight:300;line-height:1.6;}
+.info-dates{display:flex;flex-direction:column;gap:0.1rem;}
+.info-date{color:var(--ts);font-weight:300;font-size:0.82rem;white-space:nowrap;}
+.info-link{color:var(--ts);border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:1px;transition:all .2s;}
+.info-link:hover{color:var(--tp);border-color:rgba(255,255,255,0.4);}
+
+.hero-title,.hero-tagline,.hero-info{transform:translateY(20px);}
+@keyframes up{to{opacity:1;transform:none;}}
+
+/* ── SECTIONS ── */
+section{padding:7rem 2.5rem;max-width:1100px;margin:0 auto;}
+.section-label{
+  font-size:0.62rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--td);margin-bottom:3rem;
+  display:flex;align-items:center;gap:1.2rem;
+}
+.section-label::before{content:'';width:18px;height:1px;background:var(--accent);flex-shrink:0;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+#intro .intent-block{display:grid;grid-template-columns:1fr 1fr;gap:7rem;margin-bottom:5rem;}
+#intro .intent-block h3{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2rem);font-weight:300;line-height:1.3;margin-bottom:1.5rem;}
+#intro .intent-block p{font-size:0.9rem;line-height:1.9;color:var(--ts);font-weight:300;}
+
+.scenes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem;}
+.scene-card{background:var(--surface);border:1px solid var(--border);padding:2rem 1.8rem;position:relative;overflow:hidden;}
+.scene-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--accent),transparent 60%);}
+.scene-num{font-family:var(--fd);font-size:2.4rem;font-weight:300;color:var(--td);margin-bottom:1rem;line-height:1;}
+.scene-card h4{font-size:0.78rem;letter-spacing:0.08em;font-weight:500;color:var(--tp);margin-bottom:0.8rem;}
+.scene-card p{font-size:0.83rem;line-height:1.85;color:var(--ts);font-weight:300;}
+
+.media-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:0.5rem;}
+.media-item{background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.media-item:first-child{grid-row:1/3;}
+.media-placeholder{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--td);text-align:center;}
+
+#artists{border-top:1px solid var(--border);}
+.artist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2rem;}
+.artist-photo{width:100%;aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden;}
+.artist-photo-placeholder{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--td);text-align:center;}
+.artist-role{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--td);margin-bottom:0.35rem;}
+.artist-name{font-family:var(--fd);font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:0.7rem;}
+.artist-bio{font-size:0.78rem;line-height:1.8;color:var(--ts);font-weight:300;margin-bottom:0.9rem;}
+.artist-insta{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--td);border-bottom:1px solid var(--border);padding-bottom:2px;transition:all .2s;}
+.artist-insta:hover{color:var(--tp);border-color:rgba(255,255,255,0.3);}
+
+#about{border-top:1px solid var(--border);}
+.about-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start;}
+.about-image{width:100%;aspect-ratio:4/5;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
+.about-text h2{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.2;margin-bottom:2rem;}
+.about-text p{font-size:0.88rem;line-height:1.95;color:var(--ts);font-weight:300;margin-bottom:1.4rem;}
+.about-insta{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ts);margin-top:1rem;border:1px solid var(--border);padding:0.6rem 1.2rem;transition:all .25s;}
+.about-insta:hover{border-color:rgba(255,255,255,0.25);color:var(--tp);}
+
+#contact{border-top:1px solid var(--border);}
+.contact-inner{display:flex;flex-direction:column;gap:1.2rem;}
+.contact-item{display:flex;gap:1.5rem;align-items:baseline;}
+.contact-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--td);min-width:5rem;font-weight:400;}
+.contact-value{font-size:0.82rem;color:var(--ts);font-weight:300;}
+.contact-value a{border-bottom:1px solid var(--border);padding-bottom:1px;transition:all .2s;}
+.contact-value a:hover{color:var(--tp);border-color:rgba(255,255,255,0.3);}
+
+footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;}
+.footer-copy{font-size:0.66rem;letter-spacing:0.06em;color:var(--td);}
+
+.ticket-bar{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;}
+.btn-ticket{
+  background:var(--accent);color:var(--tp);
+  font-family:var(--fb);font-size:0.68rem;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;
+  padding:0.85rem 2.4rem;border:none;border-radius:2rem;cursor:pointer;
+  box-shadow:0 8px 28px rgba(139,26,26,0.5),0 2px 8px rgba(0,0,0,0.4);
+  transition:all .25s;white-space:nowrap;
+}
+.btn-ticket:hover{background:var(--accent-bright);transform:translateY(-2px);box-shadow:0 12px 36px rgba(196,30,30,0.6);}
+
+@media(max-width:768px){
+  header{padding:0 1.2rem;}
+  nav{gap:1.2rem;}
+  nav a{font-size:0.7rem;}
+  section{padding:5rem 1.2rem;}
+  #hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:5rem;}
+  #intro .intent-block{grid-template-columns:1fr;gap:3rem;}
+  .scenes{grid-template-columns:1fr;}
+  .media-gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .media-item:first-child{grid-row:auto;}
+  .about-layout{grid-template-columns:1fr;gap:2.5rem;}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="LOOP"/></div>
+  <nav>
+    <a href="#intro">소개</a>
+    <a href="#artists">아티스트</a>
+    <a href="#about">단체소개</a>
+    <a href="#contact">문의</a>
+  </nav>
+</header>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <span class="hero-grant">2026 서울문화재단 예술창작지원사업 A트랙 선정작</span>
+    <h1 class="hero-title">소년의 외침은<br/><em>파도로 번져</em></h1>
+    <p class="hero-tagline">진동이 파동이 되고, 파동은 다시 진동을 찾아간다.</p>
+    <div class="hero-info">
+      <div class="hero-info-row">
+        <span class="info-label">일시</span>
+        <div class="info-dates">
+          <span class="info-date">2026. 09. 12 (토)&nbsp;&nbsp;19:00</span>
+          <span class="info-date">2026. 09. 13 (일)&nbsp;&nbsp;17:00</span>
+        </div>
+      </div>
+      <div class="hero-info-row">
+        <span class="info-label">장소</span>
+        <span class="info-value"><a class="info-link" href="https://naver.me/5KOB088K" target="_blank">문래예술공장 ↗</a></span>
+      </div>
+      <div class="hero-info-row">
+        <span class="info-label">러닝타임</span>
+        <span class="info-value">50분</span>
+      </div>
+      <div class="hero-info-row">
+        <span class="info-label">티켓</span>
+        <span class="info-value">20,000원</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="intro">
+  <div class="section-label">소개</div>
+  <div class="intent-block">
+    <div>
+      <h3>기획 의도</h3>
+      <p>90bpm의 메트로놈 박자 속, 움직임의 반복성과 규칙성에서 무용수 고유의 진동을 파악한다. 파생된 파동의 움직임 가능성을 탐구하고 구체화하여 마침내 실현한다. 각자의 진동이 만날 때, 신체 구조적인 상호작용의 확장성과 신체의 관계성을 규칙화하여 가시화한다.<br/><br/>경량화된 사회에서 개인이라는 정의가 변화하는 상태를 살피고, 나와 주변은 어떻게 살아가고 살아야 하는지에 대한 고찰을 담는다.</p>
+    </div>
+    <div>
+      <h3>시놉시스</h3>
+      <p>
+        <span style="display:block;margin-bottom:0.6rem;"><strong style="color:var(--tp);font-weight:500;">소년</strong> — 본인 혹은 개인의 능력을 계속해서 발전시키고자 하는 사람들</span>
+        <span style="display:block;margin-bottom:0.6rem;"><strong style="color:var(--tp);font-weight:500;">외침</strong> — 허술할지라도 자신의 능력을 확장시키고자 하는 작은 진동이자 예열</span>
+        <span style="display:block;margin-bottom:1.8rem;"><strong style="color:var(--tp);font-weight:500;">파도</strong> — 외침으로 퍼지는 파동</span>
+        각자도생의 시대 역시, 상호관계의 울타리 안에서 서로를 인정한다면 자신의 100% 능력과 고유성을 존중받을 수 있다. 개인의 역할이 주도성의 영역을 넘어, 거시적인 관점에서 견고한 조직을 움직이게 한다는 사실을 마주한다.
+      </p>
+    </div>
+  </div>
+  <div class="scenes">
+    <div class="scene-card">
+      <div class="scene-num">01</div>
+      <h4>파도에 실려</h4>
+      <p>서로의 영역 밖으로 밀고, 당기고, 피하며 흔들리는 추. 두 무용수 사이에 있던 추를 대신해 제3의 무용수가 들어오며 예측 불가 속에서도 자신을 지키려는 연약하나 강인한 의지를 드러낸다.</p>
+    </div>
+    <div class="scene-card">
+      <div class="scene-num">02</div>
+      <h4>파도에서 나</h4>
+      <p>혼자 남은 무대에서 30개의 메트로놈 합판이 작동한다. 불규칙한 소음은 동조화 현상 아래 하나의 박자로 변주되고, 그는 본인만의 규칙적인 진동을 탐색하며 생존해 나아간다.</p>
+    </div>
+    <div class="scene-card">
+      <div class="scene-num">03</div>
+      <h4>우리의 파도는 바람을 따라간다</h4>
+      <p>두 무용수가 재등장한다. 작은 상호작용은 움직임이 되고, 비로소 서로의 100% 주체성을 온전히 유지하며 하나의 바람을 타고 자신만의 파도로 전진한다.</p>
+    </div>
+  </div>
+  <div class="media-gallery">
+    <div class="media-item"><span class="media-placeholder">홍보 사진<br/>준비 중</span></div>
+    <div class="media-item"><span class="media-placeholder">사진 2</span></div>
+    <div class="media-item"><span class="media-placeholder">사진 3</span></div>
+    <div class="media-item"><span class="media-placeholder">사진 4</span></div>
+    <div class="media-item"><span class="media-placeholder">영상</span></div>
+  </div>
+</section>
+
+<section id="artists">
+  <div class="section-label">아티스트</div>
+  <div class="artist-grid">
+    <div class="artist-card">
+      <div class="artist-photo"><span class="artist-photo-placeholder">Photo<br/>Coming Soon</span></div>
+      <div class="artist-role">대표 / 무용수</div>
+      <div class="artist-name">김민아</div>
+      <div class="artist-bio">국립현대무용단 &lt;정글&gt;, &lt;크롤&gt; 무용수. 홍콩 E-Side Dance Festival 안무·출연, 광명문화재단 청바지 창작 발표 선정 外 다수.</div>
+      <a class="artist-insta" href="https://instagram.com/zzminahzz" target="_blank">↗ @zzminahzz</a>
+    </div>
+    <div class="artist-card">
+      <div class="artist-photo"><span class="artist-photo-placeholder">Photo<br/>Coming Soon</span></div>
+      <div class="artist-role">안무자</div>
+      <div class="artist-name">강승현</div>
+      <div class="artist-bio">국립현대무용단 &lt;정글&gt; 무용수, &lt;크롤&gt; 리허설 디렉터. 광명문화재단 청바지 사업 선정 안무, 보훈댄스페스티벌 남자연기상 外.</div>
+      <a class="artist-insta" href="https://instagram.com/" target="_blank">↗ Instagram</a>
+    </div>
+    <div class="artist-card">
+      <div class="artist-photo"><span class="artist-photo-placeholder">Photo<br/>Coming Soon</span></div>
+      <div class="artist-role">무용수</div>
+      <div class="artist-name">정재우</div>
+      <div class="artist-bio">한국춤비평가협회 베스트 작품상, 서울무용제 댄스랩 최우수 작품상, 한국현대무용협회 올해의 무용수상 外.</div>
+      <a class="artist-insta" href="https://instagram.com/" target="_blank">↗ Instagram</a>
+    </div>
+    <div class="artist-card">
+      <div class="artist-photo"><span class="artist-photo-placeholder">Photo<br/>Coming Soon</span></div>
+      <div class="artist-role">무용수</div>
+      <div class="artist-name">류지수</div>
+      <div class="artist-bio">국립현대무용단 지역순회 &lt;내가 물에서 본 것&gt;, 서울국제공연예술제(SPAF) 허프로젝트 &lt;1 Degree Celsius&gt; 外.</div>
+      <a class="artist-insta" href="https://instagram.com/" target="_blank">↗ Instagram</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-label">단체소개</div>
+  <div class="about-layout">
+    <div class="about-image"><span class="media-placeholder">Photo<br/>Coming Soon</span></div>
+    <div class="about-text">
+      <h2>LOOP</h2>
+      <p>두 명의 안무가이자 무용수가 공동 창작·공동 출연하는 듀오 단체. 일상에서 마주치는 사소한 사건부터 사회적 규모의 현상까지, 의도치 않게 발생하는 징후를 관찰하고 그 안에서 관통하는 메시지와 숨은 연결고리를 찾아 퍼포먼스로 구성한다.</p>
+      <p>결과물은 서사보다 신체 관계의 구조와 감응에 집중하며, 기록–리서치–창작–쇼잉이 순환하는 '루프' 방식으로 축적된다. 신체 움직임을 설계와 계산의 영역으로 바라보며, 절제된 움직임의 빌드업 이후 후반부에 기능이 드러나는 구조를 LOOP만의 움직임 핵심 가치로 삼는다.</p>
+      <p>2021년 설립 이래 서울문화재단, 광명문화재단, 안산문화재단 등 다수 기관 선정. 2025년 홍콩 E-Side Dance Festival SPOT HK 공식 참가. 수도권 및 국내외 페스티벌을 중심으로 활동 중.</p>
+      <a class="about-insta" href="https://instagram.com/_l_oop" target="_blank">↗ @_l_oop</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">문의</div>
+  <div class="contact-inner">
+    <div class="contact-item">
+      <span class="contact-label">연락처</span>
+      <span class="contact-value">010-4122-5086</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">인스타그램</span>
+      <span class="contact-value"><a href="https://instagram.com/_l_oop" target="_blank">@_l_oop</a></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">Copyright &copy; 2026 Genie | Creative Producer</div>
+  <div class="footer-copy">LOOP — Contemporary Dance</div>
+</footer>
+
+<div class="ticket-bar">
+  <button class="btn-ticket" onclick="window.open('https://forms.gle/YOUR_FORM_ID_HERE','_blank')">예매하기</button>
+</div>
+
+</body>
+</html>
