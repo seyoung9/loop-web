@@ -196,6 +196,17 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
   .about-layout{grid-template-columns:1fr;gap:2.5rem;}
   footer{flex-direction:column;gap:0.5rem;text-align:center;}
 }
+
+#credit{border-top:1px solid var(--border);}
+.credit-inner{display:flex;flex-direction:column;gap:2.5rem;}
+.credit-main .credit-row{display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--border);}
+.credit-sub{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.4rem 2rem;}
+.credit-sub .credit-row{display:grid;grid-template-columns:7rem 1fr;gap:0.5rem;padding:0.4rem 0;}
+.credit-support .credit-row{display:grid;grid-template-columns:7rem 1fr;gap:0.5rem;padding:0.4rem 0;}
+.credit-support{display:flex;flex-direction:column;gap:0.2rem;}
+.credit-role{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--td);font-weight:400;padding-top:0.15rem;}
+.credit-name{font-size:0.85rem;color:var(--ts);font-weight:300;letter-spacing:0.02em;}
+.credit-divider{height:1px;background:var(--border);}
 </style>
 </head>
 <body>
@@ -205,6 +216,7 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
   <nav>
     <a href="#intro">소개</a>
     <a href="#artists">아티스트</a>
+    <a href="#credit">크레딧</a>
     <a href="#about">단체소개</a>
     <a href="#contact">문의</a>
   </nav>
@@ -314,6 +326,41 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
       <div class="artist-name">류지수</div>
       <div class="artist-bio">국립현대무용단 지역순회 &lt;내가 물에서 본 것&gt;, 서울국제공연예술제(SPAF) 허프로젝트 &lt;1 Degree Celsius&gt; 外.</div>
       <a class="artist-insta" href="https://instagram.com/js_rilu" target="_blank">↗ @js_rilu</a>
+    </div>
+  </div>
+</section>
+
+<section id="credit">
+  <div class="section-label">Credit</div>
+  <div class="credit-inner">
+    <div class="credit-main">
+      <div class="credit-row">
+        <span class="credit-role">리허설 디렉터</span>
+        <span class="credit-name">김민아</span>
+      </div>
+      <div class="credit-row">
+        <span class="credit-role">안무</span>
+        <span class="credit-name">강승현</span>
+      </div>
+      <div class="credit-row">
+        <span class="credit-role">출연</span>
+        <span class="credit-name">김민아&nbsp;&nbsp;류지수&nbsp;&nbsp;정재우</span>
+      </div>
+    </div>
+    <div class="credit-divider"></div>
+    <div class="credit-sub">
+      <div class="credit-row"><span class="credit-role">기획</span><span class="credit-name">지세영</span></div>
+      <div class="credit-row"><span class="credit-role">시니오그래퍼</span><span class="credit-name">배도현</span></div>
+      <div class="credit-row"><span class="credit-role">무대감독</span><span class="credit-name">이현탁</span></div>
+      <div class="credit-row"><span class="credit-role">음향감독</span><span class="credit-name">신승재</span></div>
+      <div class="credit-row"><span class="credit-role">조명감독</span><span class="credit-name">임영균</span></div>
+      <div class="credit-row"><span class="credit-role">사진감독</span><span class="credit-name">염동윤</span></div>
+      <div class="credit-row"><span class="credit-role">영상감독</span><span class="credit-name">권재헌</span></div>
+    </div>
+    <div class="credit-divider"></div>
+    <div class="credit-support">
+      <div class="credit-row"><span class="credit-role">후원</span><span class="credit-name">서울특별시&nbsp;&nbsp;서울문화재단</span></div>
+      <div class="credit-row"><span class="credit-role">제작지원</span><span class="credit-name">LOOP</span></div>
     </div>
   </div>
 </section>
