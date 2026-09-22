@@ -149,16 +149,39 @@ section{padding:7rem 2.5rem;max-width:1100px;margin:0 auto;}
 footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;}
 .footer-copy{font-size:0.66rem;letter-spacing:0.06em;color:var(--td);}
 
-.ticket-bar{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;}
-.btn-ticket{
-  background:var(--accent);color:var(--tp);
-  font-family:var(--fb);font-size:0.68rem;font-weight:600;
-  letter-spacing:0.22em;text-transform:uppercase;
-  padding:0.85rem 2.4rem;border:none;border-radius:2rem;cursor:pointer;
-  box-shadow:0 8px 28px rgba(139,26,26,0.5),0 2px 8px rgba(0,0,0,0.4);
-  transition:all .25s;white-space:nowrap;
+.ticket-bar{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;
 }
-.btn-ticket:hover{background:var(--accent-bright);transform:translateY(-2px);box-shadow:0 12px 36px rgba(196,30,30,0.6);}
+.btn-ticket{
+  background:transparent;
+  color:var(--tp);
+  font-family:var(--fb);font-size:0.72rem;font-weight:600;
+  letter-spacing:0.28em;text-transform:uppercase;
+  padding:1rem 3rem;
+  border:1px solid rgba(196,30,30,0.8);
+  border-radius:0;
+  cursor:pointer;
+  white-space:nowrap;
+  position:relative;
+  overflow:hidden;
+  transition:color .35s;
+  animation:pulse-border 2.5s ease-in-out infinite;
+}
+.btn-ticket::before{
+  content:'';
+  position:absolute;inset:0;
+  background:var(--accent-bright);
+  transform:translateX(-100%);
+  transition:transform .35s ease;
+  z-index:0;
+}
+.btn-ticket span{position:relative;z-index:1;}
+.btn-ticket:hover::before{transform:translateX(0);}
+.btn-ticket:hover{color:#fff;}
+@keyframes pulse-border{
+  0%,100%{box-shadow:0 0 0 0 rgba(196,30,30,0.4);}
+  50%{box-shadow:0 0 0 6px rgba(196,30,30,0);}
+}
 
 @media(max-width:768px){
   header{padding:0 1.2rem;}
@@ -329,7 +352,7 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
 </footer>
 
 <div class="ticket-bar">
-  <button class="btn-ticket" onclick="window.open('https://forms.gle/YOUR_FORM_ID_HERE','_blank')">예매하기</button>
+  <button class="btn-ticket" onclick="window.open('https://forms.gle/YOUR_FORM_ID_HERE','_blank')"><span>✦ 예매하기</span></button>
 </div>
 
 </body>
