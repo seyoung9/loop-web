@@ -155,10 +155,11 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
 .ticket-bar::before{
   content:'';
   position:absolute;
-  inset:-20px -40px;
-  background:radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 70%);
+  inset:-30px -60px;
+  background:radial-gradient(ellipse at center, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 40%, transparent 70%);
   border-radius:50%;
   pointer-events:none;
+  animation:float 3s ease-in-out infinite;
 }
 .btn-ticket{
   position:relative;
