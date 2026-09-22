@@ -151,21 +151,30 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
 
 .ticket-bar{
   position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;
+  filter:drop-shadow(0 8px 24px rgba(139,26,26,0.55));
 }
 .btn-ticket{
   background:var(--accent);
   color:var(--tp);
   font-family:var(--fb);font-size:0.68rem;font-weight:600;
-  letter-spacing:0.22em;text-transform:uppercase;
-  padding:0.85rem 2.4rem;
-  border:1px solid rgba(255,255,255,0.15);
+  letter-spacing:0.28em;text-transform:uppercase;
+  padding:1rem 4rem;
+  border:1px solid rgba(255,255,255,0.12);
   border-radius:2rem;
   cursor:pointer;
   white-space:nowrap;
-  transition:all .25s;
-  box-shadow:0 8px 28px rgba(139,26,26,0.5),0 2px 8px rgba(0,0,0,0.4);
+  transition:all .3s ease;
+  animation:float 3s ease-in-out infinite;
 }
-.btn-ticket:hover{background:var(--accent-bright);transform:translateY(-2px);box-shadow:0 12px 36px rgba(196,30,30,0.6);}
+.btn-ticket:hover{
+  background:var(--accent-bright);
+  letter-spacing:0.34em;
+  filter:brightness(1.15);
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
 
 @media(max-width:768px){
   header{padding:0 1.2rem;}
