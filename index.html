@@ -151,9 +151,17 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
 
 .ticket-bar{
   position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;
-  filter:drop-shadow(0 8px 24px rgba(139,26,26,0.55));
+}
+.ticket-bar::before{
+  content:'';
+  position:absolute;
+  inset:-20px -40px;
+  background:radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 70%);
+  border-radius:50%;
+  pointer-events:none;
 }
 .btn-ticket{
+  position:relative;
   background:var(--accent);
   color:var(--tp);
   font-family:var(--fb);font-size:0.68rem;font-weight:600;
@@ -164,12 +172,13 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align
   cursor:pointer;
   white-space:nowrap;
   transition:all .3s ease;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.04), 0 8px 32px rgba(139,26,26,0.5);
   animation:float 3s ease-in-out infinite;
 }
 .btn-ticket:hover{
   background:var(--accent-bright);
   letter-spacing:0.34em;
-  filter:brightness(1.15);
+  box-shadow:0 0 0 1px rgba(255,255,255,0.08), 0 12px 40px rgba(196,30,30,0.6);
 }
 @keyframes float{
   0%,100%{transform:translateY(0);}
