@@ -229,6 +229,12 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;padding-bottom:7re
 .credit-role{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--td);font-weight:400;padding-top:0.15rem;}
 .credit-name{font-size:0.85rem;color:var(--ts);font-weight:300;letter-spacing:0.02em;}
 .credit-divider{height:1px;background:var(--border);}
+.fonts-loading .hero-title,
+.fonts-loading .hero-tagline,
+.fonts-loading .hero-info,
+.fonts-loading .hero-content{
+  opacity:0;animation:none;
+}
 </style>
 </head>
 <body>
@@ -427,6 +433,13 @@ footer{border-top:1px solid var(--border);padding:2rem 2.5rem;padding-bottom:7re
 <div class="ticket-bar">
   <button class="btn-ticket" onclick="window.open('https://forms.gle/YOUR_FORM_ID_HERE','_blank')">얼리버드 예매하기</button>
 </div>
+
+<script>
+document.documentElement.classList.add('fonts-loading');
+document.fonts.ready.then(function(){
+  document.documentElement.classList.remove('fonts-loading');
+});
+</script>
 
 </body>
 </html>
